@@ -6,22 +6,22 @@
 
 ### 2. Implementação do Wazuh Manager e Agentes
 
-## Instalar o Wazuh Manager no Control (a)
+## Instalar o Wazuh Manager no CONTROL (a)
 
-A. Execute o seguinte comando no Control Server:
+A. Execute o seguinte comando na máquina a) (CONTROL):
    ```bash
    curl -sO https://packages.wazuh.com/4.7/wazuh-install.sh && sudo bash ./wazuh-install.sh -a
    ```
 
 B. Anote o usuário e senha fornecidos após a instalação do Wazuh.
 
-C. No navegador, acesse o endereço IP público do Control Server usando HTTPS:
+C. No navegador, acesse com o endereço IP público da máquina a) usando HTTPS:
    ```
    https://<IP público>:443
    ```
    Faça login utilizando o usuário e senha anotados anteriormente.
 
-D. No painel do Wazuh Manager, navegue até "Agents", "Deploy a new agent" e siga as instruções para adicionar os agentes nas máquinas b), c), d) e e), utilizando os seguintes comandos específicos para cada máquina.
+D. No painel do Wazuh Manager, navegue até "Agents" e siga as instruções para adicionar os agentes nas máquinas b), c), d) e e), utilizando os seguintes comandos específicos para cada máquina.
 
 ### 3. Instalar Agentes Wazuh nas Máquinas Cliente
 
