@@ -4,9 +4,9 @@
 ## 1. Configuração de Infraestrutura na AWS
 
 ### Máquinas na AWS:
-1. **Control Server (Windows 11) - a)**
+1. **Control Server (Ubuntu) - a)**
    - Tipo: c5.large
-   - Acesso: RDP (Remmina)
+   - Acesso: Termius (SSH)
 
 2. **Cliente Debian - b)**
    - Tipo: t2.micro
