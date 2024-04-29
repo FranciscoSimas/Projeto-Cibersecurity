@@ -23,7 +23,7 @@ C. No navegador, acesse com o endereço IP público da máquina a) usando HTTPS:
 
 D. No painel do Wazuh Manager, navegue até "Agents" e siga as instruções para adicionar os agentes nas máquinas b), c), d) e e), utilizando os seguintes comandos específicos para cada máquina.
 
-### 3. Instalar Agentes Wazuh nas Máquinas Cliente
+### 2.1. Instalar Agentes Wazuh nas Máquinas Cliente
 
 Na Máquina b) (Cliente Debian):
 
