@@ -1,10 +1,12 @@
-## Documentação Passo a Passo: Implementação do Wazuh Manager e Agentes
+## Documentação Passo a Passo
 
 ### 1. Criar as Máquinas na AWS
 
 - Utilize a interface da AWS para criar as cinco máquinas especificadas no projeto, distribuindo os sistemas operacionais e tamanhos de instância conforme necessário.
 
-### 2. Instalar o Wazuh Manager no Control (a)
+### 2. Implementação do Wazuh Manager e Agentes
+
+## Instalar o Wazuh Manager no Control (a)
 
 A. Execute o seguinte comando no Control Server:
    ```bash
