@@ -30,6 +30,8 @@ Na Máquina b) (Cliente Debian):
 ```bash
 wget https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.7.3-1_amd64.deb && \
 sudo WAZUH_MANAGER='<IP_Control_Server>' WAZUH_AGENT_GROUP='default' WAZUH_AGENT_NAME='LUX1-Debian' dpkg -i ./wazuh-agent_4.7.3-1_amd64.deb && \
+```
+```bash
 sudo systemctl daemon-reload && \
 sudo systemctl enable wazuh-agent && \
 sudo systemctl start wazuh-agent
@@ -40,6 +42,8 @@ Na Máquina c) (Cliente RedHat):
 ```bash
 curl -o wazuh-agent-4.7.3-1.x86_64.rpm https://packages.wazuh.com/4.x/yum/wazuh-agent-4.7.3-1.x86_64.rpm && \
 sudo WAZUH_MANAGER='<IP_Control_Server>' WAZUH_AGENT_GROUP='default' WAZUH_AGENT_NAME='LUX2-RedHat' rpm -ihv wazuh-agent-4.7.3-1.x86_64.rpm && \
+```
+```bash
 sudo systemctl daemon-reload && \
 sudo systemctl enable wazuh-agent && \
 sudo systemctl start wazuh-agent
@@ -50,6 +54,8 @@ Na Máquina d) (Cliente Windows 2022):
 ```powershell
 Invoke-WebRequest -Uri https://packages.wazuh.com/4.x/windows/wazuh-agent-4.7.3-1.msi -OutFile ${env.tmp}\wazuh-agent; \
 msiexec.exe /i ${env.tmp}\wazuh-agent /q WAZUH_MANAGER='<IP_Control_Server>' WAZUH_AGENT_GROUP='default' WAZUH_AGENT_NAME='WIN2022' WAZUH_REGISTRATION_SERVER='<IP_Control_Server>'; \
+```
+```powershell
 NET START WazuhSvc
 ```
 
@@ -58,6 +64,8 @@ Na Máquina e) (Cliente Windows 11):
 ```powershell
 Invoke-WebRequest -Uri https://packages.wazuh.com/4.x/windows/wazuh-agent-4.7.3-1.msi -OutFile ${env.tmp}\wazuh-agent; \
 msiexec.exe /i ${env.tmp}\wazuh-agent /q WAZUH_MANAGER='<IP_Control_Server>' WAZUH_AGENT_GROUP='default' WAZUH_AGENT_NAME='WIN11' WAZUH_REGISTRATION_SERVER='<IP_Control_Server>'; \
+```
+```powershell
 NET START WazuhSvc
 ```
 
