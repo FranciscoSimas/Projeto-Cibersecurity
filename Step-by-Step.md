@@ -244,3 +244,85 @@ B. Verificação do Funcionamento do Servidor:
 
 
 
+### 7. Configurar os Servidores para o UptimeRobot
+
+A. Criação de Conta:
+   - Acesse o site do UptimeRobot e crie uma conta para obter acesso aos recursos de monitoramento oferecidos pela plataforma.
+
+B. Configuração dos Monitores:
+
+1. Servidor Nginx na Máquina b) (Porta 80):
+   - Crie um novo monitor no UptimeRobot utilizando o seguinte URL:
+     ```
+     http://<ip_publico_da_máquina_b>
+     ```
+
+2. Servidor IIS na Máquina d) (Porta 80):
+   - Crie um novo monitor no UptimeRobot utilizando o seguinte URL:
+     ```
+     http://<ip_publico_da_máquina_d>
+     ```
+
+3. Servidor IIS na Máquina d) (Porta 443 - HTTPS):
+   - Crie um novo monitor no UptimeRobot utilizando o seguinte URL:
+     ```
+     https://<ip_publico_da_máquina_d>
+     ```
+
+4. Servidor Apache na Máquina c) (Porta 443 - HTTPS):
+   - Crie um novo monitor no UptimeRobot utilizando o seguinte URL:
+     ```
+     https://<ip_publico_da_máquina_c>
+     ```
+
+Certifique-se de substituir `<ip_publico_da_máquina>` pelo endereço IP público correspondente de cada máquina. Isso permitirá que o UptimeRobot monitore o status de cada servidor e porta especificados.
+
+
+
+
+
+### 8. Integrar o PagerDuty no Wazuh
+
+A. Criação de Conta no PagerDuty:
+   - Acesse o site do PagerDuty e crie uma conta para obter acesso aos recursos de gerenciamento de incidentes oferecidos pela plataforma.
+
+B. Configuração do Serviço no PagerDuty:
+
+1. Acesse o PagerDuty e vá para "Services".
+2. Clique em "New Service" e dê um nome ao serviço.
+3. Continue a instalação até chegar à opção "Events API V2".
+4. Guarde a API_KEY fornecida durante a configuração do serviço.
+
+C. Configuração no Wazuh (Máquina CONTROL):
+
+1. Acesse a máquina CONTROL e execute o comando:
+   ```bash
+   sudo su
+   ```
+
+2. Edite o arquivo de configuração do Wazuh:
+   ```bash
+   nano /var/ossec/etc/ossec.conf
+   ```
+
+3. Integre o PagerDuty no arquivo de configuração adicionando o seguinte trecho:
+   ```xml
+   <integration>
+     <name>pagerduty</name>
+     <api_key><API_KEY></api_key> <!-- Substitua pela sua chave de API do PagerDuty -->
+     <level>10</level>
+     <alert_format>json</alert_format> <!-- Novo parâmetro obrigatório desde v4.7.0 -->
+   </integration>
+   ```
+   Substitua `<API_KEY>` pela chave API do PagerDuty que você salvou anteriormente.
+
+4. Salve o arquivo de configuração.
+
+D. Reinicie o Serviço do Wazuh:
+   Execute o seguinte comando para reiniciar o serviço:
+   ```bash
+   systemctl restart wazuh-manager
+   ```
+
+E. Verificação da Integração com o PagerDuty:
+   - Acesse o PagerDuty, vá para "Services" e confirme se o Wazuh foi corretamente configurado como um serviço.
