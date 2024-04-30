@@ -4,6 +4,10 @@
 
 - Utilize a interface da AWS para criar as cinco máquinas especificadas no projeto, distribuindo os sistemas operacionais e tamanhos de instância conforme necessário.
 
+
+
+
+
 ### 2. Implementação do Wazuh Manager e Agentes
 
 ## Instalar o Wazuh Manager no CONTROL (a)
@@ -71,6 +75,10 @@ NET START WazuhSvc
 
 E. Após a instalação, verifique no site do Wazuh Manager na aba "Agents" se todos os agentes foram instalados corretamente.
 
+
+
+
+
 ### 3. Instalar New Relic em Todos os Agentes
 
 A. Criação de Conta no New Relic:
@@ -96,3 +104,143 @@ B. Instalação do New Relic nos Agentes:
 
 C. Verificação da Configuração:
    - Acesse o site do New Relic e vá para "All Entities" para confirmar se todas as máquinas estão bem configuradas e enviando dados corretamente para o painel do New Relic.
+
+
+
+
+
+### 4. Criar um Servidor HTTP no Debian (Máquina b))
+
+A. Instalação e Configuração do Nginx:
+
+1. Atualizar Listas de Pacotes: Certifique-se de que as listas de pacotes estão atualizadas executando:
+   ```bash
+   sudo apt update
+   ```
+
+2. Instalar o Nginx: Utilize o seguinte comando para instalar o Nginx:
+   ```bash
+   sudo apt install nginx
+   ```
+
+3. Iniciar o Nginx: Após a instalação, inicie o serviço do Nginx:
+   ```bash
+   sudo systemctl start nginx
+   ```
+
+4. Habilitar Inicialização Automática do Nginx: Para garantir que o Nginx seja iniciado automaticamente durante o boot do sistema, execute:
+   ```bash
+   sudo systemctl enable nginx
+   ```
+
+5. Verificar o Status do Nginx: Verifique se o Nginx está em execução executando:
+   ```bash
+   sudo systemctl status nginx
+   ```
+B. Verificação do Funcionamento do Servidor:
+
+Acesse o seguinte link em um navegador web:
+```
+http://<ip_publico_da_máquina_b>
+```
+
+Certifique-se de substituir `<ip_publico_da_máquina_b>` pelo endereço IP público da máquina b. Isso permitirá que você verifique se o servidor HTTP está funcionando corretamente.
+
+
+
+
+### 5. Criar um Servidor HTTPS no RedHat (Máquina c))
+
+A. Configuração do Servidor HTTPS com Apache:
+
+1. Instale o Apache: Se ainda não tiver instalado o Apache, faça-o executando:
+   ```bash
+   sudo yum install httpd
+   ```
+
+2. Instale o OpenSSL: O HTTPS depende da criptografia SSL/TLS, fornecida pelo OpenSSL. Instale-o com:
+   ```bash
+   sudo yum install openssl
+   ```
+
+3. Crie o diretório /etc/ssl/private/:
+   ```bash
+   sudo mkdir /etc/ssl/private
+   ```
+
+4. Defina permissões apropriadas para o diretório para garantir que apenas o root possa ler e escrever nele:
+   ```bash
+   sudo chmod 700 /etc/ssl/private
+   ```
+
+5. Agora, você pode gerar o certificado e a chave SSL:
+   ```bash
+   sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/apache-selfsigned.key -out /etc/ssl/certs/apache-selfsigned.crt
+   ```
+
+6. Ative o Módulo SSL: O Apache precisa ter o módulo SSL habilitado. Você pode fazer isso executando:
+   ```bash
+   sudo yum install mod_ssl
+   ```
+
+7. Reinicie o Apache: Após fazer essas alterações, reinicie o Apache para aplicar a configuração:
+   ```bash
+   sudo systemctl restart httpd
+   ```
+
+B. Verificação do Funcionamento do Servidor:
+
+Acesse o seguinte link em um navegador web:
+```
+https://<ip_publico_da_máquina_c>
+```
+
+Certifique-se de substituir `<ip_publico_da_máquina_c>` pelo endereço IP público da máquina c. Isso permitirá que você verifique se o servidor HTTPS está funcionando corretamente.
+
+
+
+
+
+### 6. Criar um Servidor HTTP e HTTPS no Windows (Máquina d)
+
+A. Configuração do Servidor HTTP e HTTPS com IIS:
+
+1. Abrir o Server Manager:
+   - Acesse o Server Manager na máquina Windows Server (Máquina d).
+
+2. Adicionar Papéis e Recursos:
+   - No Server Manager, clique em "Add roles and features".
+   - Avance até a seção "Server Roles" e selecione a opção "Web Server (IIS)".
+   - Siga as instruções para concluir a instalação.
+
+3. Acessar o IIS Manager:
+   - No Server Manager, vá para "Tools" e entre no IIS Manager.
+
+4. Gerar Certificado Autoassinado:
+   - No IIS Manager, clique no servidor localhost e vá para "Server Certificates".
+   - Crie um "Self-Signed Certificate", selecionando a opção "WebHosting" e dando um nome personalizado.
+
+5. Configurar Bindings do Site Padrão:
+   - No IIS Manager, vá para os sites e acesse "Default Web Site".
+   - Configure as bindings do site padrão adicionando HTTPS e selecionando o certificado recém-criado.
+
+B. Verificação do Funcionamento do Servidor:
+
+1. Acesso ao Servidor HTTP:
+   - No navegador, acesse o seguinte link:
+     ```
+     http://<ip_publico_da_máquina_d>
+     ```
+   Certifique-se de substituir `<ip_publico_da_máquina_d>` pelo endereço IP público da máquina d). Isso permitirá que você verifique se o servidor HTTP está funcionando corretamente.
+
+2. Acesso ao Servidor HTTPS:
+   - No navegador, acesse o seguinte link:
+     ```
+     https://<ip_publico_da_máquina_d>
+     ```
+   Certifique-se de substituir `<ip_publico_da_máquina_d>` pelo endereço IP público da máquina d). Isso permitirá que você verifique se o servidor HTTPS está funcionando corretamente.
+
+
+
+
+
