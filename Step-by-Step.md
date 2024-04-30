@@ -310,7 +310,7 @@ C. Configuração no Wazuh (Máquina CONTROL):
    <integration>
      <name>pagerduty</name>
      <api_key><API_KEY></api_key> <!-- Substitua pela sua chave de API do PagerDuty -->
-     <level>10</level>
+     <level>5</level>
      <alert_format>json</alert_format> <!-- Novo parâmetro obrigatório desde v4.7.0 -->
    </integration>
    ```
