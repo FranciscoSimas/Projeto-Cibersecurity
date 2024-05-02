@@ -326,3 +326,37 @@ D. Reinicie o Serviço do Wazuh:
 
 E. Verificação da Integração com o PagerDuty:
    - Acesse o PagerDuty, vá para "Services" e confirme se o Wazuh foi corretamente configurado como um serviço.
+
+
+
+
+
+### 9. Instalação do Splunk na Máquina CONTROL
+
+A. Instalação do Splunk:
+
+1. Acesse o site do Splunk e obtenha o link de download do "Splunk Enterprise".
+2. Na máquina CONTROL, baixe o pacote do Splunk utilizando o comando wget e instale-o com o seguinte comando:
+   ```bash
+   dpkg -i splunk-9.2.1-78803f08aabb-linux-2.6-amd64.deb
+   ```
+3. Inicie o serviço do Splunk:
+   ```bash
+   sudo /opt/splunk/bin/splunk start
+   ```
+4. Configure o Splunk para iniciar automaticamente durante a inicialização do sistema:
+   ```bash
+   sudo /opt/splunk/bin/splunk enable boot-start
+   ```
+
+B. Verificação do Funcionamento do Servidor:
+
+Acesse o seguinte link em um navegador web:
+```
+http://<ip_publico_da_máquina_CONTROL>:8000
+```
+Certifique-se de substituir `<ip_publico_da_máquina_CONTROL>` pelo endereço IP público da máquina CONTROL. Isso permitirá que você verifique se o servidor Splunk está funcionando corretamente.
+
+
+
+
