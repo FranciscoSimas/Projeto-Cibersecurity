@@ -360,3 +360,32 @@ Certifique-se de substituir `<ip_publico_da_máquina_CONTROL>` pelo endereço IP
 
 
 
+
+### 10. Conclusão do Projeto
+
+Com todos os serviços instalados e configurados conforme as etapas descritas neste projeto, agora é hora de aprofundar os conhecimentos em cada um dos serviços e explorar as possibilidades de integração entre eles. Algumas sugestões para avançar ainda mais:
+
+1. **Explorar os Recursos do Splunk:**
+   - Dedique um tempo para explorar os recursos do Splunk, como criação de painéis, execução de consultas avançadas, criação de alertas e muito mais. O Splunk é uma poderosa plataforma de análise de dados e pode oferecer insights valiosos sobre o ambiente de segurança.
+
+2. **Melhorias no Wazuh:**
+   - Aprofunde-se nas configurações do Wazuh para diminuir as vulnerabilidades, ajustando as regras de detecção, configurando políticas de segurança mais rigorosas e implementando ações corretivas automáticas.
+   
+3. **Integrações Adicionais:**
+   - Considere integrar outros serviços de segurança ou ferramentas de monitoramento ao seu ambiente, como sistemas de detecção de intrusões adicionais, sistemas de prevenção de intrusões, soluções de análise de logs, entre outros.
+
+4. **Treinamento e Certificações:**
+   - Considere participar de cursos de treinamento específicos para as tecnologias utilizadas neste projeto e buscar certificações relevantes, o que pode ajudar a aprimorar suas habilidades e conhecimentos.
+
+5. **Implementação de Baselines:** Estabeleça baselines de comportamento normal para os sistemas e aplicativos no ambiente, facilitando a detecção de desvios e comportamentos suspeitos que possam indicar atividades maliciosas.
+
+6. **Auditorias e Revisões Periódicas:**
+   - Realize auditorias de segurança periódicas em seu ambiente, revisando as configurações, identificando possíveis brechas de segurança e implementando medidas corretivas conforme necessário.
+
+Ao continuar a explorar e aprimorar seu projeto de segurança cibernética, você estará fortalecendo a proteção do ambiente e contribuindo para a segurança e integridade dos dados e sistemas.
+
+
+
+
+
+#### Francisco Simas
